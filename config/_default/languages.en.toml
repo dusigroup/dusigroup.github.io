@@ -3,14 +3,14 @@ label = "English"
 direction = "ltr"
 weight = 1
 
-title = "Congo"
+title = "Dusi Group"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params]
   dateFormat = "2 January 2006"
 
   # mainSections = ["section1", "section2"]
-  # description = "My awesome website"
+  description = "Dusi Group is a small family of independent initiatives: wellness for the mind, joy in good food, and beautifully crafted software."
 
 [params.author]
   # name = "Your name here"

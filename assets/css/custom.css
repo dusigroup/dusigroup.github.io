@@ -1,0 +1,158 @@
+/* Landing page hero + shelf links (layouts/_partials/home/custom.html) */
+
+.dg-hero {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  text-align: center;
+}
+
+.dg-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(var(--color-primary-600));
+}
+html.dark .dg-eyebrow {
+  color: rgb(var(--color-primary-400));
+}
+
+.dg-title {
+  margin-top: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: rgb(var(--color-neutral-900));
+}
+html.dark .dg-title {
+  color: rgb(var(--color-neutral));
+}
+
+.dg-subtitle {
+  max-width: 40rem;
+  margin: 1.5rem auto 0;
+  font-size: 1.125rem;
+  color: rgb(var(--color-neutral-600));
+}
+html.dark .dg-subtitle {
+  color: rgb(var(--color-neutral-300));
+}
+
+.dg-shelves {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+.dg-shelf {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition:
+    width 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.dg-shelf:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dg-shelf-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.dg-shelf-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.dg-shelf-body {
+  flex: 1;
+  text-align: left;
+}
+
+.dg-shelf-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dg-shelf-name {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.dg-shelf-tagline {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dg-shelf-arrow {
+  display: none;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  transition: transform 0.15s ease;
+}
+.dg-shelf:hover .dg-shelf-arrow {
+  transform: translateX(0.25rem);
+}
+
+@media (min-width: 640px) {
+  .dg-hero {
+    padding-top: 3rem;
+  }
+  .dg-title {
+    font-size: 3rem;
+  }
+  .dg-shelf {
+    padding: 1.75rem 2rem;
+  }
+  .dg-shelf-name {
+    font-size: 1.5rem;
+  }
+  .dg-shelf-arrow {
+    display: block;
+  }
+}
+
+/* Progressively longer shelves, echoing the logo's stacked bars
+   (bar widths sampled from assets/img/logo.png: ~51% / ~76% / 100%).
+   Only kicks in once the container has reached its full width, so
+   there's always enough room for the card copy to sit on one line. */
+@media (min-width: 1120px) {
+  .dg-shelves {
+    align-items: flex-start;
+    max-width: 64rem;
+  }
+  .dg-shelf:nth-child(1) {
+    width: 51%;
+  }
+  .dg-shelf:nth-child(2) {
+    width: 76%;
+  }
+  .dg-shelf:nth-child(3) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+<section class="dg-hero">
+  {{ with .Params.eyebrow }}
+    <p class="dg-eyebrow">{{ . | emojify }}</p>
+  {{ end }}
+  <h1 class="dg-title">{{ .Title | emojify }}</h1>
+  {{ with .Params.subtitle }}
+    <p class="dg-subtitle">{{ . | emojify }}</p>
+  {{ end }}
+</section>
+
+<section class="dg-shelves">
+  {{ range .Params.shelves }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="dg-shelf" style="background-color: {{ .color }};">
+      <span class="dg-shelf-icon">
+        {{ if eq .icon "book" }}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5A2.5 2.5 0 0 1 4.5 2H11v20H4.5A2.5 2.5 0 0 1 2 19.5v-15Z"/><path d="M22 4.5A2.5 2.5 0 0 0 19.5 2H13v20h6.5a2.5 2.5 0 0 0 2.5-2.5v-15Z"/></svg>
+        {{ else if eq .icon "spoon" }}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c-2 2-3 4-3 6a3 3 0 0 0 6 0c0-2-1-4-3-6Z"/><path d="M8 11v11"/><path d="M17 2v8a3 3 0 0 1-6 0"/><path d="M15 2v8"/><path d="M19 2v8"/><path d="M17 11v11"/></svg>
+        {{ else if eq .icon "code" }}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        {{ end }}
+      </span>
+      <span class="dg-shelf-body">
+        <span class="dg-shelf-label">{{ .label | emojify }}</span>
+        <span class="dg-shelf-name">{{ .name | emojify }}</span>
+        <span class="dg-shelf-tagline">{{ .tagline | emojify }}</span>
+      </span>
+      <span class="dg-shelf-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  {{ end }}
+</section>

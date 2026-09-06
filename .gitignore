@@ -8,3 +8,5 @@ node_modules/
 
 # OS / editor
 .DS_Store
+
+CLAUDE.*.md

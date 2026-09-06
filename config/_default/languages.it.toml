@@ -9,3 +9,6 @@ title = "Dusi Group"
   dateFormat = "2 January 2006"
 
   description = "Dusi Group è una piccola famiglia di iniziative indipendenti: benessere per la mente, gioia a tavola, e software curato con maestria."
+
+[params.author]
+  name = "Dusi Group"

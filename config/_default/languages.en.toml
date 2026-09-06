@@ -13,7 +13,7 @@ title = "Dusi Group"
   description = "Dusi Group is a small family of independent initiatives: wellness for the mind, joy in good food, and beautifully crafted software."
 
 [params.author]
-  # name = "Your name here"
+  name = "Dusi Group"
   # image = "img/author.jpg"
   # headline = "I'm only human"
   # bio = "A little bit about you"

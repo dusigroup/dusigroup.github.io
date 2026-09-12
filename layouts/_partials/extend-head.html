@@ -1,0 +1,28 @@
+{{/* Organization schema: this is a small holding-company landing page for a
+  handful of sub-brand sites, so the sub-brand URLs are declared as `sameAs`
+  to help Google associate them with this entity. Restricted to the homepage
+  because that's the only page carrying `.Params.shelves` (the sub-brand
+  list) today; revisit if more page types are added. */}}
+{{ if .IsHome }}
+  {{ $logo := resources.Get "img/logo.png" }}
+  {{ $scratch := newScratch }}
+  {{ range .Params.shelves }}
+    {{ $scratch.Add "sameAs" (slice .url) }}
+  {{ end }}
+  {{ $organization := dict
+    "@context" "https://schema.org"
+    "@type" "Organization"
+    "name" site.Title
+    "url" site.BaseURL
+    "description" (site.Params.description | strings.TrimSpace)
+  }}
+  {{ if $logo }}
+    {{ $organization = merge $organization (dict "logo" $logo.Permalink) }}
+  {{ end }}
+  {{ with $scratch.Get "sameAs" }}
+    {{ $organization = merge $organization (dict "sameAs" .) }}
+  {{ end }}
+  <script type="application/ld+json">
+    {{ $organization | jsonify (dict "indent" "  ") | safeJS }}
+  </script>
+{{ end }}

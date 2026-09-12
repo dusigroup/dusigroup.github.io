@@ -11,6 +11,10 @@ autoSwitchAppearance = true
 
 defaultThemeColor = "#FFFFFF"
 
+# Default social share image (used for Open Graph / Twitter Card previews
+# when a page doesn't provide its own `images` front matter).
+images = ["img/logo.png"]
+
 enableSearch = false
 enableCodeCopy = false
 enableImageLazyLoading = true

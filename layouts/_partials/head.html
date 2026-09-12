@@ -67,18 +67,22 @@
     ></script>
   {{ end }}
   {{/* Metadata */}}
-  <meta
-    name="description"
-    content="{{ with .Description }}
-      {{ . }}
+  {{/* Overridden from theme: upstream builds this content string across
+    several indented template lines, which leaves literal newlines/spaces
+    inside the attribute value. Resolve to a variable first, then trim. */}}
+  {{ $description := "" }}
+  {{ with .Description }}
+    {{ $description = . }}
+  {{ else }}
+    {{ if .IsPage }}
+      {{ $description = .Summary }}
     {{ else }}
-      {{ if .IsPage }}
-        {{ .Summary }}
-      {{ else }}
-        {{ with .Site.Params.description }}{{ . }}{{ end }}
+      {{ with .Site.Params.description }}
+        {{ $description = . }}
       {{ end }}
-    {{ end }}"
-  />
+    {{ end }}
+  {{ end }}
+  <meta name="description" content="{{ $description | strings.TrimSpace }}" />
   {{ with union .Site.Params.keywords .Params.keywords -}}
     <meta name="keywords" content="{{ delimit . `, ` }}" />
   {{- end }}

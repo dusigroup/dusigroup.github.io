@@ -6,6 +6,9 @@
   {{ with .Params.subtitle }}
     <p class="dg-subtitle">{{ . | emojify }}</p>
   {{ end }}
+  {{ with .Params.narrative }}
+    <p class="dg-narrative">{{ . | emojify }}</p>
+  {{ end }}
 </section>
 
 <section class="dg-shelves">
@@ -24,8 +27,10 @@
         <span class="dg-shelf-label">{{ .label | emojify }}</span>
         <span class="dg-shelf-name">{{ .name | emojify }}</span>
         <span class="dg-shelf-tagline">{{ .tagline | emojify }}</span>
+        {{ with .cta }}
+          <span class="dg-shelf-cta">{{ . | emojify }}<span aria-hidden="true">&rarr;</span></span>
+        {{ end }}
       </span>
-      <span class="dg-shelf-arrow" aria-hidden="true">&rarr;</span>
     </a>
   {{ end }}
 </section>

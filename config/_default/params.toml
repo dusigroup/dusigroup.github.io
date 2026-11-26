@@ -12,8 +12,11 @@ autoSwitchAppearance = true
 defaultThemeColor = "#FFFFFF"
 
 # Default social share image (used for Open Graph / Twitter Card previews
-# when a page doesn't provide its own `images` front matter).
-images = ["img/logo.png"]
+# when a page doesn't provide its own `images` front matter). Dedicated
+# 1200x630 cover distinct from the transparent header logo, so link
+# previews on social/chat apps get a solid background instead of
+# render-dependent transparency.
+images = ["img/og-cover.png"]
 
 enableSearch = false
 enableCodeCopy = false

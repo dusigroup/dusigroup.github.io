@@ -2,6 +2,7 @@
 title = "Uno scaffale per la mente, la tavola e il lavoro."
 
 [params]
+  seoTitle = "Dusi Group — Libri, Corsi di Cucina per Bambini e Software su Misura"
   eyebrow = 'Dusi Group'
   subtitle = "Dusi Group è una piccola famiglia di iniziative indipendenti: benessere per la mente, gioia a tavola, e software curato con maestria."
 

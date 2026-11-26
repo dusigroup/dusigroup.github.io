@@ -4,8 +4,9 @@
   <meta name="theme-color" content="{{ .Site.Params.defaultThemeColor | default "#ffffff" }}" />
   {{/* Title */}}
   {{ if .IsHome -}}
-    <title>{{ .Site.Title | emojify }}</title>
-    <meta name="title" content="{{ .Site.Title | emojify }}" />
+    {{ $homeTitle := .Params.seoTitle | default .Site.Title }}
+    <title>{{ $homeTitle | emojify }}</title>
+    <meta name="title" content="{{ $homeTitle | emojify }}" />
   {{- else -}}
     <title>{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}</title>
     <meta name="title" content="{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}" />
